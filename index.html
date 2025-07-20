@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishita Gadde | Senior Frontend Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .font-space-grotesk {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .skill-tag {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .skill-tag:hover {
+            background-color: #334155;
+            color: #e2e8f0;
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.1), 0 10px 10px -5px rgba(79, 70, 229, 0.04);
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #334155;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 60px;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 60px;
+        }
+        .timeline-content {
+            position: relative;
+        }
+        .timeline-dot {
+            content: '';
+            position: absolute;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            background-color: #4f46e5;
+            border-radius: 50%;
+            z-index: 10;
+            border: 3px solid #0a0a0a;
+        }
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 8px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+                padding-right: 0;
+                text-align: left !important;
+            }
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            .timeline-dot {
+                left: 0 !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Nav -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-space-grotesk tracking-tighter text-white">Rishita.dev</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition-colors">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#projects" class="text-slate-300 hover:text-indigo-400 transition-colors">Projects</a>
+                <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition-colors">Skills</a>
+            </nav>
+            <a href="mailto:rishitacg12@gmail.com" class="hidden md:inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-all">
+                Contact Me
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="hero" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white font-space-grotesk leading-tight">
+                    Senior Frontend Engineer & UX Designer
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-400">
+                    I build accessible, high-performance web experiences with a focus on micro-frontend architecture and user-centric design. Let's create something amazing together.
+                </p>
+                <div class="mt-10 flex justify-center gap-4">
+                    <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-all">
+                        View My Work
+                    </a>
+                    <a href="https://www.linkedin.com/in/grishita/" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-all">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-2">
+                         <img src="https://placehold.co/400x400/0a0a0a/e2e8f0?text=RG" alt="Rishita Gadde" class="rounded-full mx-auto shadow-lg border-4 border-slate-800">
+                    </div>
+                    <div class="md:col-span-3">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk mb-4">About Me</h2>
+                        <p class="text-slate-400 mb-4">
+                            With over 7 years of experience, I specialize in UI development and UX design, ensuring all interfaces are ADA/WCAG-compliant. My expertise spans across modern frameworks like Angular, React, and Vue.js.
+                        </p>
+                        <p class="text-slate-400 mb-6">
+                            A key achievement in my career was architecting a micro-frontend framework that accelerated feature delivery by 30%. I thrive on solving complex problems and leveraging my cloud experience (AWS) to build scalable, impactful solutions.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-indigo-500/10 text-indigo-300 text-sm font-medium px-3 py-1 rounded-full">UI/UX Development</span>
+                            <span class="bg-indigo-500/10 text-indigo-300 text-sm font-medium px-3 py-1 rounded-full">Micro-Frontends</span>
+                            <span class="bg-indigo-500/10 text-indigo-300 text-sm font-medium px-3 py-1 rounded-full">Accessibility (WCAG)</span>
+                            <span class="bg-indigo-500/10 text-indigo-300 text-sm font-medium px-3 py-1 rounded-full">Full-Stack Capability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk text-center mb-16">Career Journey</h2>
+                <div class="relative timeline">
+                    <!-- Vanguard -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-effect p-6 rounded-lg">
+                            <p class="text-sm text-indigo-400">Jan 2025 − Present</p>
+                            <h3 class="text-xl font-bold text-white">Senior UI/UX Developer</h3>
+                            <p class="text-md font-semibold text-slate-300 mb-2">Vanguard − Pennsylvania, USA</p>
+                            <p class="text-slate-400 text-sm">Rolled out a micro-frontend system in Angular 19, cutting merge-conflict resolution by 60%. Built responsive, WCAG-compliant interfaces and integrated REST/GraphQL APIs with AWS.</p>
+                        </div>
+                    </div>
+                    <!-- TD Securities -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-effect p-6 rounded-lg">
+                            <p class="text-sm text-indigo-400">Jul 2023 − Dec 2024</p>
+                            <h3 class="text-xl font-bold text-white">Senior UI Full-Stack Developer</h3>
+                            <p class="text-md font-semibold text-slate-300 mb-2">TD Securities − New York, USA</p>
+                            <p class="text-slate-400 text-sm">Migrated a legacy Vue.js platform to React 18/Next.js, cutting load times by 40%. Drove accessibility compliance from 76% to 98% and engineered high-performance AG Grid data tables.</p>
+                        </div>
+                    </div>
+                     <!-- Amara Labs -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-effect p-6 rounded-lg">
+                            <p class="text-sm text-indigo-400">May 2019 − Aug 2021</p>
+                            <h3 class="text-xl font-bold text-white">Senior UI Full-Stack Developer</h3>
+                            <p class="text-md font-semibold text-slate-300 mb-2">Amara Labs − Hyderabad, IND</p>
+                            <p class="text-slate-400 text-sm">Developed real-time dashboards in Angular & React with sub-150ms latency. Built cross-platform mobile apps with React Native & Ionic, focusing on offline capabilities.</p>
+                        </div>
+                    </div>
+                    <!-- JIVA Infotech -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-effect p-6 rounded-lg">
+                            <p class="text-sm text-indigo-400">May 2018 − Apr 2019</p>
+                            <h3 class="text-xl font-bold text-white">Frontend Engineer</h3>
+                            <p class="text-md font-semibold text-slate-300 mb-2">JIVA Infotech Inc − Hyderabad, IND</p>
+                            <p class="text-slate-400 text-sm">Constructed modular SPAs with Angular & Vue.js, cutting bundle size by 20%. Launched hybrid Ionic apps with seamless offline reliability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk text-center mb-12">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card glass-effect rounded-lg overflow-hidden p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">AI-Powered Dynamic UX</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">A Next.js library using TensorFlow.js to adapt UI elements in real-time based on user emotion, streamed over WebSockets.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Next.js</span><span class="skill-tag">TensorFlow.js</span><span class="skill-tag">GraphQL</span>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card glass-effect rounded-lg overflow-hidden p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">AI Accessibility Auditor</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">A Next.js/Node.js service wrapping Axe-core with an LLM assistant to generate code fixes for WCAG violations, integrated with GitHub Actions.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Next.js</span><span class="skill-tag">Node.js</span><span class="skill-tag">Axe-core</span><span class="skill-tag">LLM</span>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card glass-effect rounded-lg overflow-hidden p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">Real-Time Collaboration Dashboard</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">React-based Kanban board using Socket.IO and Redis for sub-200ms synchronization. Optimized with Zustand and dynamic imports.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">React</span><span class="skill-tag">Socket.IO</span><span class="skill-tag">Redis</span><span class="skill-tag">Zustand</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk text-center mb-12">Technical Skills</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-4">Frameworks & Languages</h3>
+                        <div class="flex flex-wrap gap-3 justify-center">
+                            <span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Python</span>
+                            <span class="skill-tag">Angular</span><span class="skill-tag">React</span><span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">Next.js</span><span class="skill-tag">React Native</span><span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Tailwind CSS</span><span class="skill-tag">RxJS</span><span class="skill-tag">Redux</span>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-4">DevOps, Cloud & Testing</h3>
+                        <div class="flex flex-wrap gap-3 justify-center">
+                             <span class="skill-tag">AWS</span><span class="skill-tag">GCP</span><span class="skill-tag">Azure</span>
+                             <span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Webpack</span>
+                             <span class="skill-tag">Vite</span><span class="skill-tag">Git</span><span class="skill-tag">Jenkins</span>
+                             <span class="skill-tag">Cypress</span><span class="skill-tag">Jest</span><span class="skill-tag">Axe</span>
+                             <span class="skill-tag">Lighthouse</span>
+                        </div>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-bold text-indigo-400 mb-4">Databases & Others</h3>
+                        <div class="flex flex-wrap gap-3 justify-center">
+                             <span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Vector DB</span>
+                             <span class="skill-tag">GraphQL</span><span class="skill-tag">REST APIs</span><span class="skill-tag">WCAG</span>
+                             <span class="skill-tag">Figma</span><span class="skill-tag">Adobe xd</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education & Publication -->
+        <section id="education" class="py-20 bg-slate-900/50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk mb-12">Education & Publications</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Master of Science in Computer Science</h3>
+                        <p class="text-indigo-400">West Chester University of Pennsylvania</p>
+                        <p class="text-slate-400">May 2023</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Bachelors in Computer Science Engineering</h3>
+                        <p class="text-indigo-400">Jawaharlal Nehru Technological University</p>
+                        <p class="text-slate-400">May 2016</p>
+                    </div>
+                </div>
+                <div class="max-w-4xl mx-auto mt-12 text-left glass-effect p-6 rounded-lg">
+                     <h3 class="text-xl font-bold text-white mb-2">Publication</h3>
+                     <a href="https://rebicte.org/index.php/rebicte/article/view/156" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">
+                        Estimate House Pricing using Machine Learning
+                     </a>
+                     <p class="text-slate-400 text-sm mt-1">Research Briefs on Information and Communication Technology Evolution. 9, (May 2023), 41-58.</p>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>&copy; 2025 Rishita Gadde. Open to Opportunities.</p>
+            <p class="text-sm mt-2">Built with HTML, Tailwind CSS, and a love for clean code.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
