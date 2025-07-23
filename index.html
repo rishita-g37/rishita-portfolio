@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -18,8 +20,8 @@
             font-family: 'Space Grotesk', sans-serif;
         }
         .glass-effect {
-            background: rgba(17, 24, 39, 0.5);
-            backdrop-filter: blur(10px);
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .skill-tag {
@@ -90,6 +92,60 @@
             left: -8px;
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: #111827;
+            padding: 20px;
+            border-radius: 12px;
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 36px;
+            height: 36px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            border: 2px solid #0a0a0a;
+        }
+        #video-player {
+            width: 100%;
+            border-radius: 8px;
+        }
+
         @media (max-width: 768px) {
             .timeline::before {
                 left: 8px;
@@ -112,7 +168,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header & Nav -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold font-space-grotesk tracking-tighter text-white">Rishita.dev</a>
@@ -129,27 +184,28 @@
     </header>
 
     <main class="pt-24">
-        <!-- Hero Section -->
         <section id="hero" class="py-20 md:py-32">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white font-space-grotesk leading-tight">
-                    Senior Frontend Engineer & UX Designer
+                    Senior Frontend Engineer
                 </h1>
                 <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-400">
-                    I build accessible, high-performance web experiences with a focus on micro-frontend architecture and user-centric design. Let's create something amazing together.
+                    Hi! I'm Rishita. I'm a Senior Software Engineer who loves building easy-to-use and accessible web/mobile apps. I enjoy taking on new challenges and working with cloud technology to build something great together.
                 </p>
-                <div class="mt-10 flex justify-center gap-4">
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
                     <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-all">
                         View My Work
                     </a>
-                    <a href="https://www.linkedin.com/in/grishita/" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-all">
-                        LinkedIn Profile
+                    <a href="https://www.linkedin.com/in/rishitagadde/" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2">
+                         <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/rishita-g37/rishita-portfolio/blob/main/Rishita_Resume.pdf" download="Rishita_Resume.pdf" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Download Resume
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-20 bg-slate-900/50">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
@@ -159,10 +215,10 @@
                     <div class="md:col-span-3">
                         <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk mb-4">About Me</h2>
                         <p class="text-slate-400 mb-4">
-                            With over 7 years of experience, I specialize in UI development and UX design, ensuring all interfaces are ADA/WCAG-compliant. My expertise spans across modern frameworks like Angular, React, and Vue.js.
+                            As a Senior Software Engineer with a strong focus on the front-end, my passion lies in building web and mobile applications that are not only powerful but also intuitive and accessible to everyone. I have deep expertise across the modern JavaScript ecosystem, including Angular, React, and Vue.js.
                         </p>
                         <p class="text-slate-400 mb-6">
-                            A key achievement in my career was architecting a micro-frontend framework that accelerated feature delivery by 30%. I thrive on solving complex problems and leveraging my cloud experience (AWS) to build scalable, impactful solutions.
+                            I'm particularly driven by the challenge of creating highly compliant interfaces (ADA/WCAG) and architecting scalable solutions. A highlight of my career has been designing and implementing a micro-frontend framework that significantly accelerated feature delivery. I thrive in environments where I can tackle complex problems and leverage my cloud experience to create lasting impact.
                         </p>
                         <div class="flex flex-wrap gap-3">
                             <span class="bg-indigo-500/10 text-indigo-300 text-sm font-medium px-3 py-1 rounded-full">UI/UX Development</span>
@@ -175,160 +231,206 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience" class="py-20">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk text-center mb-16">Career Journey</h2>
                 <div class="relative timeline">
-                    <!-- Vanguard -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content glass-effect p-6 rounded-lg">
                             <p class="text-sm text-indigo-400">Jan 2025 − Present</p>
-                            <h3 class="text-xl font-bold text-white">Senior UI/UX Developer</h3>
+                            <h3 class="text-xl font-bold text-white">Senior Frontend Engineer</h3>
                             <p class="text-md font-semibold text-slate-300 mb-2">Vanguard − Pennsylvania, USA</p>
-                            <p class="text-slate-400 text-sm">Rolled out a micro-frontend system in Angular 19, cutting merge-conflict resolution by 60%. Built responsive, WCAG-compliant interfaces and integrated REST/GraphQL APIs with AWS.</p>
+                            <p class="text-slate-400 text-sm">Built an Angular 19 app from scratch to manage index profile data, converting Figma designs into responsive components. Integrated Python APIs, managed state with NgRx, and helped design a micro-frontend architecture.</p>
                         </div>
                     </div>
-                    <!-- TD Securities -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content glass-effect p-6 rounded-lg">
                             <p class="text-sm text-indigo-400">Jul 2023 − Dec 2024</p>
-                            <h3 class="text-xl font-bold text-white">Senior UI Full-Stack Developer</h3>
+                            <h3 class="text-xl font-bold text-white">Senior Software Engineer</h3>
                             <p class="text-md font-semibold text-slate-300 mb-2">TD Securities − New York, USA</p>
-                            <p class="text-slate-400 text-sm">Migrated a legacy Vue.js platform to React 18/Next.js, cutting load times by 40%. Drove accessibility compliance from 76% to 98% and engineered high-performance AG Grid data tables.</p>
+                            <p class="text-slate-400 text-sm">Developed a fully WCAG 2.1 compliant portal with React 18. Optimized AG Grid performance, migrated a legacy Vue app to React, and mentored junior developers, improving team-wide best practices.</p>
                         </div>
                     </div>
-                     <!-- Amara Labs -->
-                    <div class="timeline-item">
+                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content glass-effect p-6 rounded-lg">
                             <p class="text-sm text-indigo-400">May 2019 − Aug 2021</p>
-                            <h3 class="text-xl font-bold text-white">Senior UI Full-Stack Developer</h3>
+                            <h3 class="text-xl font-bold text-white">Senior Software Engineer</h3>
                             <p class="text-md font-semibold text-slate-300 mb-2">Amara Labs − Hyderabad, IND</p>
-                            <p class="text-slate-400 text-sm">Developed real-time dashboards in Angular & React with sub-150ms latency. Built cross-platform mobile apps with React Native & Ionic, focusing on offline capabilities.</p>
+                            <p class="text-slate-400 text-sm">Developed internal Angular/React apps for lab inventory and tracking. Built a cross-platform mobile app with React Native and Ionic, featuring offline access and secure data syncing.</p>
                         </div>
                     </div>
-                    <!-- JIVA Infotech -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content glass-effect p-6 rounded-lg">
                             <p class="text-sm text-indigo-400">May 2018 − Apr 2019</p>
-                            <h3 class="text-xl font-bold text-white">Frontend Engineer</h3>
+                            <h3 class="text-xl font-bold text-white">Software Engineer II</h3>
                             <p class="text-md font-semibold text-slate-300 mb-2">JIVA Infotech Inc − Hyderabad, IND</p>
-                            <p class="text-slate-400 text-sm">Constructed modular SPAs with Angular & Vue.js, cutting bundle size by 20%. Launched hybrid Ionic apps with seamless offline reliability.</p>
+                            <p class="text-slate-400 text-sm">Delivered frontend modules using Angular and Vue.js for HR and vendor workflows. Tested REST/GraphQL APIs with Postman and built reusable components to accelerate development.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="py-20 bg-slate-900/50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk text-center mb-12">Featured Projects</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
                     <div class="project-card glass-effect rounded-lg overflow-hidden p-6 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">AI-Powered Dynamic UX</h3>
                         <p class="text-slate-400 text-sm mb-4 flex-grow">A Next.js library using TensorFlow.js to adapt UI elements in real-time based on user emotion, streamed over WebSockets.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">Next.js</span><span class="skill-tag">TensorFlow.js</span><span class="skill-tag">GraphQL</span>
+                        <div class="mt-auto pt-4 border-t border-slate-700/50 flex items-center gap-4">
+                            <button class="demo-btn w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-all flex items-center justify-center gap-2" data-video-src="https://github.com/rishita-g37/rishita-portfolio/blob/main/AI_Dynamic_UX.mp4">
+                                <i class="fa-solid fa-play"></i> Watch Demo
+                            </button>
                         </div>
                     </div>
-                    <!-- Project 2 -->
                     <div class="project-card glass-effect rounded-lg overflow-hidden p-6 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">AI Accessibility Auditor</h3>
                         <p class="text-slate-400 text-sm mb-4 flex-grow">A Next.js/Node.js service wrapping Axe-core with an LLM assistant to generate code fixes for WCAG violations, integrated with GitHub Actions.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">Next.js</span><span class="skill-tag">Node.js</span><span class="skill-tag">Axe-core</span><span class="skill-tag">LLM</span>
+                        <div class="mt-auto pt-4 border-t border-slate-700/50 flex items-center gap-4">
+                            <button class="demo-btn w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-all flex items-center justify-center gap-2" data-video-src="https://github.com/rishita-g37/rishita-portfolio/blob/main/AI_Accesessibility.mp4">
+                                <i class="fa-solid fa-play"></i> Watch Demo
+                            </button>
                         </div>
                     </div>
-                    <!-- Project 3 -->
                     <div class="project-card glass-effect rounded-lg overflow-hidden p-6 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">Real-Time Collaboration Dashboard</h3>
                         <p class="text-slate-400 text-sm mb-4 flex-grow">React-based Kanban board using Socket.IO and Redis for sub-200ms synchronization. Optimized with Zustand and dynamic imports.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag">React</span><span class="skill-tag">Socket.IO</span><span class="skill-tag">Redis</span><span class="skill-tag">Zustand</span>
+                        <div class="mt-auto pt-4 border-t border-slate-700/50 flex items-center gap-4">
+                            <button class="demo-btn w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-all flex items-center justify-center gap-2" data-video-src="https://github.com/rishita-g37/rishita-portfolio/blob/main/Realtime_kanban_board.mp4">
+                                <i class="fa-solid fa-play"></i> Watch Demo
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="py-20">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk text-center mb-12">Technical Skills</h2>
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-5xl mx-auto">
                     <div class="mb-8">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-4">Frameworks & Languages</h3>
+                        <h3 class="text-xl font-bold text-indigo-400 mb-4 text-center">Frameworks & Languages</h3>
                         <div class="flex flex-wrap gap-3 justify-center">
-                            <span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript (ES6+)</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Python</span>
                             <span class="skill-tag">Angular</span><span class="skill-tag">React</span><span class="skill-tag">Vue.js</span>
                             <span class="skill-tag">Next.js</span><span class="skill-tag">React Native</span><span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Tailwind CSS</span><span class="skill-tag">RxJS</span><span class="skill-tag">Redux</span>
                         </div>
                     </div>
                     <div class="mb-8">
-                        <h3 class="text-xl font-bold text-indigo-400 mb-4">DevOps, Cloud & Testing</h3>
+                        <h3 class="text-xl font-bold text-indigo-400 mb-4 text-center">DevOps, Cloud & Testing</h3>
                         <div class="flex flex-wrap gap-3 justify-center">
-                             <span class="skill-tag">AWS</span><span class="skill-tag">GCP</span><span class="skill-tag">Azure</span>
-                             <span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Webpack</span>
-                             <span class="skill-tag">Vite</span><span class="skill-tag">Git</span><span class="skill-tag">Jenkins</span>
-                             <span class="skill-tag">Cypress</span><span class="skill-tag">Jest</span><span class="skill-tag">Axe</span>
-                             <span class="skill-tag">Lighthouse</span>
+                             <span class="skill-tag">AWS</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span>
+                             <span class="skill-tag">Webpack</span><span class="skill-tag">Vite</span><span class="skill-tag">Git</span>
+                             <span class="skill-tag">Jenkins</span><span class="skill-tag">Cypress</span><span class="skill-tag">Jest</span>
+                             <span class="skill-tag">Axe</span><span class="skill-tag">Lighthouse</span>
                         </div>
                     </div>
                      <div>
-                        <h3 class="text-xl font-bold text-indigo-400 mb-4">Databases & Others</h3>
+                        <h3 class="text-xl font-bold text-indigo-400 mb-4 text-center">Databases & Others</h3>
                         <div class="flex flex-wrap gap-3 justify-center">
                              <span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Vector DB</span>
                              <span class="skill-tag">GraphQL</span><span class="skill-tag">REST APIs</span><span class="skill-tag">WCAG</span>
-                             <span class="skill-tag">Figma</span><span class="skill-tag">Adobe xd</span>
+                             <span class="skill-tag">Figma</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Education & Publication -->
         <section id="education" class="py-20 bg-slate-900/50">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-white font-space-grotesk mb-12">Education & Publications</h2>
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-                    <div class="glass-effect p-6 rounded-lg">
+                    <div class="glass-effect p-6 rounded-lg h-full">
                         <h3 class="text-xl font-bold text-white">Master of Science in Computer Science</h3>
                         <p class="text-indigo-400">West Chester University of Pennsylvania</p>
                         <p class="text-slate-400">May 2023</p>
                     </div>
-                    <div class="glass-effect p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-white">Bachelors in Computer Science Engineering</h3>
+                    <div class="glass-effect p-6 rounded-lg h-full">
+                        <h3 class="text-xl font-bold text-white">BSc in Computer Science Engineering</h3>
                         <p class="text-indigo-400">Jawaharlal Nehru Technological University</p>
                         <p class="text-slate-400">May 2016</p>
                     </div>
                 </div>
-                <div class="max-w-4xl mx-auto mt-12 text-left glass-effect p-6 rounded-lg">
+                <div class="max-w-4xl mx-auto mt-8 text-left glass-effect p-6 rounded-lg">
                      <h3 class="text-xl font-bold text-white mb-2">Publication</h3>
-                     <a href="https://rebicte.org/index.php/rebicte/article/view/156" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">
+                     <a href="https://dl.acm.org/doi/10.55575/riche.v9iMay.88" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">
                         Estimate House Pricing using Machine Learning
                      </a>
-                     <p class="text-slate-400 text-sm mt-1">Research Briefs on Information and Communication Technology Evolution. 9, (May 2023), 41-58.</p>
+                     <p class="text-slate-400 text-sm mt-1">Research Briefs on Information and Communication Technology Evolution, 2023.</p>
                 </div>
             </div>
         </section>
 
-
     </main>
 
-    <!-- Footer -->
     <footer class="bg-slate-900">
         <div class="container mx-auto px-6 py-8 text-center text-slate-400">
-            <p>&copy; 2025 Rishita Gadde. Open to Opportunities.</p>
+            <p>&copy; 2025 Rishita Gadde. Designed with passion.</p>
             <p class="text-sm mt-2">Built with HTML, Tailwind CSS, and a love for clean code.</p>
         </div>
     </footer>
+
+    <div id="video-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-close">&times;</div>
+            <video id="video-player" controls></video>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoModal = document.getElementById('video-modal');
+            const videoPlayer = document.getElementById('video-player');
+            const demoButtons = document.querySelectorAll('.demo-btn');
+            const closeModalBtn = document.querySelector('.modal-close');
+
+            // Function to open the modal
+            const openModal = (videoSrc) => {
+                videoPlayer.src = videoSrc;
+                videoModal.classList.add('active');
+            };
+
+            // Function to close the modal
+            const closeModal = () => {
+                videoModal.classList.remove('active');
+                videoPlayer.pause();
+                videoPlayer.src = ''; // Clear src to stop video download
+            };
+
+            // Add event listeners to all demo buttons
+            demoButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const videoSrc = button.getAttribute('data-video-src');
+                    openModal(videoSrc);
+                });
+            });
+
+            // Add event listener to the close button
+            closeModalBtn.addEventListener('click', closeModal);
+
+            // Add event listener to the modal overlay to close when clicking outside the content
+            videoModal.addEventListener('click', (event) => {
+                if (event.target === videoModal) {
+                    closeModal();
+                }
+            });
+
+            // Add event listener for the 'Escape' key
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && videoModal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
